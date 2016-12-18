@@ -377,7 +377,7 @@ class MyoRaw(object):
             h(quat)
 
 if __name__ == '__main__':
-    # Start by initializing the Myo and attempting to connect. 
+    # Start by initializing the Myo and attempting to connect.
     # If no Myo is found, we attempt to reconnect every 0.5 seconds
     connected = 0;
     print("Initializing...")
@@ -431,9 +431,9 @@ if __name__ == '__main__':
         normGyro = Vector3(gyro[0]/16.0, gyro[1]/16.0, gyro[2]/16.0)
         imu = Imu(h, normQuat, cov, normGyro, cov, normAcc, cov)
         imuPub.publish(imu)
-        
 
-    # Package the arm and x-axis direction into an Arm message	
+
+    # Package the arm and x-axis direction into an Arm message
     def proc_arm(arm, xdir):
         #When the arm state changes, publish the new arm and orientation
         calibArm=MyoArm(arm.value, xdir.value)
@@ -450,7 +450,7 @@ if __name__ == '__main__':
         ypr = euler_from_quaternion((quat.w, quat.x, quat.y, quat.z))
         orienPub.publish(ypr)
 
-   
+
 
 
 
